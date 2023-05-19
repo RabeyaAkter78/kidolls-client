@@ -1,20 +1,82 @@
-import { Link } from 'react-router-dom'
+import { useContext, useEffect, useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { AuthContext } from '../../Providers/AuthProviders';
+import useTitle from '../../Routes/useTitle';
+import { GoogleAuthProvider, getAuth, onAuthStateChanged, signInWithPopup, } from 'firebase/auth';
+import app from '../../firebase/Firebase.config';
+
+const Auth = getAuth(app)
 const Login = () => {
+    useTitle('Login');
+    const [ setUser] = useState(null);
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState('');
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(Auth, loggedInUser => {
+            // console.log('loggedUser', loggedInUser);
+            setUser(loggedInUser)
+        })
+        return () => {
+            unsubscribe();
+        }
+
+    }, [])
 
 
+    const { signInUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log('login page location', location);
+    const from = location.state?.from.pathname || '/';
 
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log('login page location', location);
-
         console.log(email, password);
+
+        signInUser(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+                navigate(from, { replace: true });
+                setError('');
+                form.reset();
+                setSuccess('Successfully Login !');
+                setUser(loggedUser)
+            })
+            .catch(error => {
+                setError(error.message)
+            })
+
+        if (/((?=.*\\d)(?=.*[a-z])(?=.*[A-Z])|(?=.*[\\d~!@#$%^&*\\(\\)_+\\{\\}\\[\\]\\?<>|_]).{6,50})/.test(password)) {
+            setError('incorrect password');
+            return;
+        }
 
 
     }
+    // login with google:
+    const provider = new GoogleAuthProvider();
 
+    const handleLogInWithGoogle = () => {
+
+        signInWithPopup(Auth, provider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setUser(loggedUser);
+                navigate(from, { replace: true });
+
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+
+
+    }
 
     return (
         <div>
@@ -42,9 +104,12 @@ const Login = () => {
                                     <button className="btn btn-primary">Login</button>
                                 </div>
                             </div>
-                            <button className=' btn btn-success mb-5'>login with google</button>
-                            <button className='btn btn-success'>login with Gamil</button>
-                            <h2 className='text-center font-bold mt-8 mb-4'>Don't Have an account? <Link to='/register' className='text-blue-700'> Register</Link></h2>
+                            <button onClick={handleLogInWithGoogle} className=' btn btn-success mb-5'>login with google</button>
+
+                            <p className='text-center font-bold text-red-500'>{error}</p>
+                            <p className='text-center font-bold text-success'>{success}</p>
+                            <h2 className='text-center font-bold mt-8 mb-4'>Dont Have an account? <Link to='/register' className='text-blue-700'> Register</Link></h2>
+
                         </div>
 
                     </div>

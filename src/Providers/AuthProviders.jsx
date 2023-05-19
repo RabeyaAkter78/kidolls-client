@@ -1,55 +1,74 @@
-import  { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createContext, useEffect, useState } from 'react';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
 import app from '../firebase/Firebase.config';
 
 export const AuthContext = createContext(null);
 
 const auth = getAuth(app)
-
-const AuthProvider = ({ children }) => {
+const Authprovider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+
 
     const createUser = (email, password) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
-
     const signInUser = (email, password) => {
         setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
-    const logOut = () => {
-        setLoading(true);
-        signOut(auth)
+
+
+
+    const updateUserData = (name, photoUrl) => {
+        console.log(name, photoUrl)
+
+        const updatedUser = { ...user }
+        updatedUser.displayName = name;
+        updatedUser.photoURL = photoUrl;
+
+        setUser(updatedUser);
+        const auth = getAuth();
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: photoUrl
+        })
+    }
+
+    const logout = () => {
+        return signOut(auth);
     }
 
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, loggedUser => {
-            console.log('logged in user inside auth state observer');
-            setUser(loggedUser);
-            setLoading(false)
+        const unsubscribe = onAuthStateChanged(auth, currentUser => {
+            setUser(currentUser);
+            setLoading(false);
+
         })
         return () => {
-            unsubscribe()
+            return unsubscribe();
         }
 
     }, [])
 
-
-    const AuthInfo = {
+    const AUthInfo = {
         user,
         createUser,
         signInUser,
-        logOut,
-        loading
+        logout,
+        loading,
+        updateUserData
+
     }
+
+
     return (
-        <AuthContext.Provider value={AuthInfo}>
+        <AuthContext.Provider value={AUthInfo}>
             {children}
         </AuthContext.Provider>
     );
 };
 
-export default AuthProvider;
+export default Authprovider;
