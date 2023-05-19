@@ -6,7 +6,68 @@ const Reviews = () => {
 
     return (
         <div >
-            <h2 className="text-6xl text-[#fb6e50] font-bold text-center mt-4 mb-4 ">Client reviews are here</h2>
+            <h2 className="text-3xl text-[rgb(251,110,80)] font-bold text-center mt-4 mb-4 "> Let's see whats our Awesome Client says... </h2>
+            <div className="grid md:grid-cols-3 gap-4">
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src={user1} alt="Shoes" className="rounded-xl" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title ">Impressive Car Toy with Realistic Features!</h2>
+                        <p>   The XYZ Car Toy is an absolute delight! Compact yet packed with fun, it captivates my child's imagination. The sleek design and vibrant colors instantly catch the eye. With precise remote control maneuverability, thrilling races and stunts are a breeze. The working headlights and taillights add realism, making playtime even more immersive. Durable and resilient, it survives crashes and bumps effortlessly. This car toy surpasses expectations, delivering endless joy and entertainment!</p>
+                        <div className="card-actions">
+                            <button className="btn btn-primary"> <div className="rating">
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                                </div></button>
+                        </div>
+                    </div>
+                </div>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img src={user2} alt="Shoes" className="rounded-xl" />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title"> Durable and Exciting Car Toy for Endless Fun!</h2>
+                        <p>  The XYZ Car Toy packs a punch with its compact size and big fun factor. Its attention to detail and vibrant colors make it visually appealing. The remote control provides smooth maneuverability for exhilarating races. The working headlights and taillights enhance the play experience. Durability is top-notch, surviving crashes and bumps without damage. This car toy brings smiles and laughter, providing a world of joy in a small package.</p>
+                        <div className="card-actions">
+                            <button className="btn btn-primary">
+                                <div className="rating">
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </div><div className="card w-96 bg-base-100 shadow-xl">
+                    <figure className="px-10 pt-10">
+                        <img className="mask mask-squircle bg-pink-800" src={user3} />
+                    </figure>
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title"> Amazing Car Toy with Realistic Design!</h2>
+                        <p>The XYZ Car Toy unlocks a world of adventure and excitement. Its sleek design and vibrant colors spark the imagination. The precise remote control handling enables thrilling races and daring stunts. The working headlights and taillights add a touch of realism. With outstanding durability, it withstands rough play without a hitch. Get ready for hours of fun and entertainment as this car toy takes playtime to new heights.</p>
+                        <div className="card-actions">
+                            <button className="btn btn-primary"> <div className="rating">
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" />
+                                    <input type="radio" name="rating-2" className="mask mask-star-2 bg-orange-400" checked />
+                                </div></button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+            {/* <h2 className="text-6xl text-[#fb6e50] font-bold text-center mt-4 mb-4 ">Client reviews are here</h2>
             <div className='bg-cyan-50 '>
                 <div className="carousel w-full h-[650px]">
                     <div id="item1" className="carousel-item w-full grid grid-cols-1 md:grid-cols-2">
@@ -55,7 +116,7 @@ const Reviews = () => {
                     <a href="#item3" className="btn btn-xs">3</a>
 
                 </div>
-            </div>
+            </div> */}
 
         </div>
     );
