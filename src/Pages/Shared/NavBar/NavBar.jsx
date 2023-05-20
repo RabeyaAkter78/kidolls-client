@@ -10,10 +10,10 @@ const NavBar = () => {
 
     const navTools = <>
         <li><Link to='/'>Home</Link></li>
-        <li><Link>All Toys</Link></li>
-        <li><Link>My Toys</Link></li>
-        <li><Link>Add A Toy</Link></li>
-        <li><Link>Blogs</Link></li>
+        <li><Link to='/allToys' >All Toys</Link></li>
+        <li><Link to='/myToys' >My Toys</Link></li>
+        <li><Link to='/addAToy'>Add A Toy</Link></li>
+        <li><Link to='/blogs'>Blogs</Link></li>
     </>
 
 
@@ -51,10 +51,10 @@ const NavBar = () => {
             <div className="navbar-end">
 
                 <div className="tooltip" data-tip={user?.displayName}>
-                {user && <img className="rounded-full mr-4" style={{ height: '50px' }}  src={user?.photoURL} />
-                }
+                    {user && <img className="rounded-full mr-4" style={{ height: '50px' }} src={user?.photoURL} />
+                    }
                 </div>
-               
+
 
                 {user ? <button onClick={handleLogout} className="btn btn-primary" >logOut</button>
                     :
