@@ -6,21 +6,24 @@ import car9 from '../../../assets/images/gallery/car9.png'
 import { useEffect, useState } from 'react';
 
 const CategoryToys = () => {
-    const [toys, settoys] = useState([]);
+    const [active, setActive] = useState("sports");
+    const [catgory, setCAtegory] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/kidollsDetails')
+        fetch('http://localhost:5000/myToys/${category}')
             .then(res => res.json())
-            .then(data => settoys(data))
+            .then(data => setCAtegory(data))
 
 
-    }, [])
+    }, [active])
 
-
+    const handleActive = (event) => {
+        setActive(event);
+    }
 
     return (
         <div>
-{/* {
+            {/* {
     toys.map(toy=>)
 } */}
 
@@ -32,7 +35,9 @@ const CategoryToys = () => {
                 <Tabs className='text-center'>
                     <TabList >
                         <Tab >
-                            <div className="tooltip" data-tip="Sports Car">
+                            <div
+                                onClick={() => handleActive("sports")}
+                                className="tooltip" data-tip="Sports Car">
                                 <img src={car7} alt="" />
 
                             </div>

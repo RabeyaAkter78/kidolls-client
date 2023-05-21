@@ -1,6 +1,6 @@
 
 const Toys = ({ toy }) => {
-    const { name, sellerName, email, photo, category, price, quantity, ratings, description } = toy || {}
+    const { sellerName, photo, category, price, quantity,} = toy || {}
     return (
         <div>
             <div className="overflow-x-auto">
