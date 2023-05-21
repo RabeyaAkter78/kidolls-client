@@ -1,10 +1,11 @@
 import { useLoaderData } from 'react-router-dom';
 import Toys from '../Toys/Toys';
+import useTitle from '../../Routes/useTitle';
 
 
 const MyToys = () => {
     const toys = useLoaderData();
-
+    useTitle('My-Toys');
     // console.log(toys)
 
     // const { name } = toys || {};
@@ -12,7 +13,7 @@ const MyToys = () => {
         <div>
 
             <div className="overflow-x-auto">
-                <table className="table table-zebra w-full">
+                <table className="table table-compact w-full">
                     <thead>
                         <tr>
                             <th>NO</th>

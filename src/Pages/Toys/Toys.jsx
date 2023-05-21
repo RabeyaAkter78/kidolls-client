@@ -5,18 +5,18 @@ const Toys = ({ toy }) => {
         <div>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
-                
+
                     <tbody>
                         {/* row 1 */}
                         <tr>
                             <th>1</th>
-                            <div>
+                            <div className="flex flex-col">
                                 <td>Name:{sellerName}</td>
-                                <td><img src={photo} alt="" /></td>
-                            </div>                            
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                            <td>Blue</td>
+                                <td><img style={{ height: '30px' }} src={photo} alt="" /></td>
+                            </div>
+                            <td>$: {price}</td>
+                            <td>{category}</td>
+                            <td>{quantity}</td>
                             <td><button className='btn btn-primary'>Details</button></td>
                         </tr>
                     </tbody>
