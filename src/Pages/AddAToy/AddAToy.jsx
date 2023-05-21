@@ -1,11 +1,22 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import useTitle from "../../Routes/useTitle";
 import { AuthContext } from "../../Providers/AuthProviders";
 import toast, { Toaster } from 'react-hot-toast';
+// import MyToys from "../MyToys/MyToys";
 
 const AddAToy = () => {
     const { user } = useContext(AuthContext);
-    useTitle('Add-Toy')
+    // const [toys, setToys] = useState([]);
+    useTitle('Add-Toy');
+// console.log(toys);
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/myToys')
+    //         .then(res => res.json())
+    //         .then(result => {
+    //             console.log(result);
+    //         })
+    // }, [])
+
 
     const handleAddToys = (event) => {
         event.preventDefault();
@@ -21,7 +32,7 @@ const AddAToy = () => {
         const description = form.description.value;
 
         const addToy = { name, sellerName, email, photo, category, price, quantity, ratings, description };
-
+        console.log(addToy);
         fetch("http://localhost:5000/addAToy", {
             method: "POST",
             headers: {
@@ -39,13 +50,23 @@ const AddAToy = () => {
                 form.reset();
             })
         console.log(addToy);
-    }
+    };
     const handleToast = () => {
-    }
+    };
 
     return (
         <div>
+            {/* <div>
+                {
+                    toys?.map(toy => {
+                        <MyToys
+                            key={toy._id}
+                            toy={toy}
+                        ></MyToys>
+                    })
+                }
 
+            </div> */}
             <form onSubmit={handleAddToys} className=' mb-12'>
                 <div className=" w-full bg-base-200">
                     <h2 className='text-center text-blue-700 font-bold text-4xl'>Add Toy</h2>
