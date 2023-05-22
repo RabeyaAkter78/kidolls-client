@@ -21,7 +21,8 @@ const MyToys = () => {
                             <th>PRICE</th>
                             <th>CATEGORY</th>
                             <th>QUANTITY</th>
-                            <th>VIEW dETAILS</th>
+                            <th>UPDATE</th>
+                            <th>DELETE</th>
                         </tr>
                     </thead>
                 </table>

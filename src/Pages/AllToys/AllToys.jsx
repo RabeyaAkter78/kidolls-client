@@ -1,6 +1,6 @@
 import useTitle from "../../Routes/useTitle";
-import Toys from "../Toys/Toys";
 import { useLoaderData } from 'react-router-dom';
+import ShowAllToys from "../ShowAllToys/ShowAllToys";
 
 
 const AllToys = () => {
@@ -26,10 +26,10 @@ const AllToys = () => {
                 </table>
             </div>
             {
-                alltoys?.map(toy => <Toys
+                alltoys?.map(toy => <ShowAllToys
                     key={toy._id}
                     toy={toy}
-                ></Toys>)
+                ></ShowAllToys>)
             }
         </div>
     );

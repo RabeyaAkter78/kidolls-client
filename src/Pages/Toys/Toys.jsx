@@ -17,7 +17,8 @@ const Toys = ({ toy }) => {
                             <td>$: {price}</td>
                             <td>{category}</td>
                             <td>{quantity}</td>
-                            <td><button className='btn btn-primary'>Details</button></td>
+                            <td><button className='btn btn-primary'>UPDATE</button></td>
+                            <td><button className='btn btn-primary'>DELETE</button></td>
                         </tr>
                     </tbody>
                 </table>
