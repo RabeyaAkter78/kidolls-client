@@ -1,5 +1,5 @@
 
-const ShowAllToys = ({toy}) => {
+const ShowAllToys = ({toy,index}) => {
     const { sellerName, photo, category, price, quantity,} = toy || {}
     return (
         <div>
@@ -9,7 +9,7 @@ const ShowAllToys = ({toy}) => {
                 <tbody>
                     {/* row 1 */}
                     <tr>
-                        <th>1</th>
+                        <th>{index}</th>
                         <div className="flex flex-col">
                             <td>Name:{sellerName}</td>
                         </div>

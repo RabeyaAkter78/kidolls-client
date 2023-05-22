@@ -11,7 +11,7 @@ const CategoryToys = () => {
     const [categories, setCAtegory] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys?activeCategory=${active}`)
+        fetch(`http://localhost:5000/categorysToys?activeCategory=${active}`)
             .then(res => res.json())
             .then(data => setCAtegory(data))
     }, [active])
