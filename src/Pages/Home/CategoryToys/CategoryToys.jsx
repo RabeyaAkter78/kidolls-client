@@ -5,6 +5,7 @@ import car8 from '../../../assets/images/gallery/car8.png'
 import car9 from '../../../assets/images/gallery/car9.png'
 import { useEffect, useState } from 'react';
 import CatDetails from '../../CatDetails/CatDetails';
+import { Link } from 'react-router-dom';
 
 const CategoryToys = () => {
     const [active, setActive] = useState("sports");
@@ -22,15 +23,10 @@ const CategoryToys = () => {
 
     return (
         <div>
-            {/* {
-    toys.map(toy=>)
-} */}
-
-
             <div>
-                <div>
+                {/* <div>
                     <h2 className='text-3xl text-[#fb6e50] font-bold text-center mt-4  mb-5'>Chose Your Desired Cars</h2>
-                </div>
+                </div> */}
                 <Tabs className='text-center'>
                     <TabList >
                         <Tab >
@@ -59,14 +55,19 @@ const CategoryToys = () => {
 
 
                     <TabPanel>
-                     <div className='grid grid-cols-3'>
+                     <div className=' grid grid-cols-3'>
                      {
                             categories?.map(category =>
                                 <div
                                     key={category._id}
                                 >
-                                    <h2>{category.name}</h2>
-                                    <img src={category.photo} alt="" />
+                                   <div className='card bg-base-100 w-96 shadow-xl font-bold text-xl '>
+                                    <img className='h-60' src={category.photo} alt="" />
+                                   <h2>Name: {category.name}</h2>
+                                   <h2>Price:$  {category.price}</h2>
+                                   <h2>Ratings: {category.ratings}   </h2>
+                                   <button className="btn btn-primary mt-2"><Link to="catDetails">View Details</Link></button>
+                                   </div>
                                 </div>
                             )
                         }
@@ -80,8 +81,13 @@ const CategoryToys = () => {
                                 <div
                                     key={category._id}
                                 >
-                                    <h2>{category.name}</h2>
-                                    <img src={category.photo} alt="" />
+                                   <div className='card bg-base-100 w-96 shadow-xl font-bold text-xl '>
+                                    <img className='h-60' src={category.photo} alt="" />
+                                   <h2>Name: {category.name}</h2>
+                                   <h2>Price:$  {category.price}</h2>
+                                   <h2>Ratings: {category.ratings}   </h2>
+                                   <button className="btn btn-primary mt-2">Buy Now</button>
+                                   </div>
                                 </div>
                             )
                         }
@@ -94,8 +100,13 @@ const CategoryToys = () => {
                                 <div
                                     key={category._id}
                                 >
-                                    <h2>{category.name}</h2>
-                                    <img src={category.photo} alt="" />
+                                    <div className='card bg-base-100 w-96 shadow-xl font-bold text-xl '>
+                                    <img className='h-60' src={category.photo} alt="" />
+                                   <h2>Name: {category.name}</h2>
+                                   <h2>Price:$  {category.price}</h2>
+                                   <h2>Ratings: {category.ratings}   </h2>
+                                   <button className="btn btn-primary mt-2">Buy Now</button>
+                                   </div>
                                 </div>
                             )
                         }

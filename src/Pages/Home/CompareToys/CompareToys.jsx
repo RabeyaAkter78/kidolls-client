@@ -1,9 +1,9 @@
 
 const CompareToys = () => {
     return (
-        <div>
+        <div className="mt-28 mb-14">
 
-            <h2 className="text-3xl text-[#fb6e50] font-bold text-center mt-4  mb-5">Compare two toys</h2>
+            <h2 className="text-3xl text-[#fb6e50] font-bold text-center mt-28  mb-12">Compare two toys</h2>
             <div className="hero  bg-base-200 mb-4 ">
 
                 <div className="hero-content flex-col lg:flex-row">

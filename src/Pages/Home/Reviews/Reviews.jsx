@@ -5,7 +5,7 @@ const Reviews = () => {
 
 
     return (
-        <div >
+        <div className='mt-32 ' >
             <h2 className="text-3xl text-[rgb(251,110,80)] font-bold text-center mt-4 mb-4 "> Let's see whats our Awesome Client says... </h2>
             <div className="grid md:grid-cols-3 gap-4">
                 <div className="card w-96 bg-base-100 shadow-xl">

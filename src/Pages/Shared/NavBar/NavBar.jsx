@@ -8,13 +8,14 @@ const NavBar = () => {
     // console.log(user?.displayName);
     // console.log(user);
 
-    const navTools = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/allToys' >All Toys</Link></li>
-        <li><Link to='/myToys' >My Toys</Link></li>
-        <li><Link to='/addAToy'>Add A Toy</Link></li>
-        <li><Link to='/blogs'>Blogs</Link></li>
-    </>
+    const navTools =
+    <>
+    <li className="font-bold"><Link to='/'>Home</Link></li>
+    <li className="font-bold"><Link to='/allToys' >All Toys</Link></li>
+    <li className="font-bold"><Link to='/myToys' >My Toys</Link></li>
+    <li className="font-bold"><Link to='/addAToy'>Add A Toy</Link></li>
+    <li className="font-bold"><Link to='/blogs'>Blogs</Link></li>
+</>
 
 
     const handleLogout = () => {
