@@ -67,7 +67,7 @@ const CategoryToys = () => {
                                                 <h2>Price:$  {category.price}</h2>
                                                 <h2>Ratings: {category.ratings}   </h2>
                                                 <Link to={`/allToyDetails/${category._id}`}>
-                                                    <button className="btn btn-primary">View Details</button>
+                                                    <button className="btn btn-primary m-4">View Details</button>
                                                 </Link>
                                             </div>
                                         </div>
@@ -92,7 +92,7 @@ const CategoryToys = () => {
                                             <h2>Ratings: {category.ratings}   </h2>
 
                                             <Link to={`/allToyDetails/${category._id}`}>
-                                                <button className="btn btn-primary">View Details</button>
+                                                <button className="btn btn-primary m-4">View Details</button>
                                             </Link>
 
                                         </div>
@@ -114,7 +114,7 @@ const CategoryToys = () => {
                                             <h2>Price:$  {category.price}</h2>
                                             <h2>Ratings: {category.ratings}   </h2>
                                             <Link to={`/allToyDetails/${category._id}`}>
-                                                <button className="btn btn-primary">View Details</button>
+                                                <button className="btn btn-primary m-4">View Details</button>
                                             </Link>
                                         </div>
                                     </div>
