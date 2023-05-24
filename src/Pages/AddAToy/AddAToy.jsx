@@ -10,7 +10,7 @@ const AddAToy = () => {
     useTitle('Add-Toy');
 // console.log(toys);
     // useEffect(() => {
-    //     fetch('http://localhost:5000/myToys')
+    //     fetch('https://kidolls-server.vercel.app/myToys')
     //         .then(res => res.json())
     //         .then(result => {
     //             console.log(result);
@@ -33,7 +33,7 @@ const AddAToy = () => {
 
         const addToy = { name, sellerName, email, photo, category, price, quantity, ratings, description };
         console.log(addToy);
-        fetch("http://localhost:5000/addAToy", {
+        fetch("https://kidolls-server.vercel.app/addAToy", {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

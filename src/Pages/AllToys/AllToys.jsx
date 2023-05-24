@@ -9,7 +9,7 @@ const AllToys = () => {
     useTitle('All-Toys');
 // for all toy page:
     useEffect(() => {
-        fetch(`http://localhost:5000/allToys`)
+        fetch(`https://kidolls-server.vercel.app/allToys`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
@@ -20,7 +20,7 @@ const AllToys = () => {
 
 // for all toy btn:
     const handleSeeAll = () => {
-        fetch(`http://localhost:5000/allToys`)
+        fetch(`https://kidolls-server.vercel.app/allToys`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
@@ -28,7 +28,7 @@ const AllToys = () => {
     }
 // for search toy btn:
     const handleSearch = () => {
-        fetch(`http://localhost:5000/searchToys/${search}`)
+        fetch(`https://kidolls-server.vercel.app/searchToys/${search}`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data);
@@ -37,7 +37,7 @@ const AllToys = () => {
 
     // const handleViewDetails = (id) => {
     //     console.log(id)
-    //     fetch(`http://localhost:5000/allToys/${id}`)
+    //     fetch(`https://kidolls-server.vercel.app/allToys/${id}`)
     //         .then(res => res.json())
     //         .then(result => {
     //             console.log(result)

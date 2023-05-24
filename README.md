@@ -1,4 +1,4 @@
-* live server link:
+* live server link:https://kidolls-client.web.app/
 
 * This project uses Firebase for Authentication.
 * MongoDb is Used for The database.

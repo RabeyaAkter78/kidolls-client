@@ -14,7 +14,7 @@ const Updatedata = () => {
         console.log(updatedForm)
 
 
-        fetch(`http://localhost:5000/updateData/${data._id}`, {
+        fetch(`https://kidolls-server.vercel.app/updateData/${data._id}`, {
             method: 'PATCH',
             body: JSON.stringify(
                 updatedForm

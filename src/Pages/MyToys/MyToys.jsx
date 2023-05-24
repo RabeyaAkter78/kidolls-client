@@ -11,7 +11,7 @@ const MyToys = () => {
     const [myData, setMyData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myToys?email=${user?.email}`)
+        fetch(`https://kidolls-server.vercel.app/myToys?email=${user?.email}`)
             .then(res => res.json())
             .then(data => { setMyData(data) })
 
@@ -22,13 +22,13 @@ const MyToys = () => {
 
     const handleDelete = (id) => {
         console.log(id)
-        fetch(`http://localhost:5000/myToys/${id}`, {
+        fetch(`https://kidolls-server.vercel.app/myToys/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json())
             .then(result => {
                 if (result.deletedCount > 0) {
-                    fetch(`http://localhost:5000/myToys?email=${user?.email}`)
+                    fetch(`https://kidolls-server.vercel.app/myToys?email=${user?.email}`)
                         .then(res => res.json())
                         .then(data => { setMyData(data) })
                 }

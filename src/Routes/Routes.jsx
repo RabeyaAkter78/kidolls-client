@@ -34,14 +34,14 @@ const router = createBrowserRouter([
             {
                 path: '/allToys',
                 element: <AllToys></AllToys>,
-                // loader: () => fetch('http://localhost:5000/allToys')
+                // loader: () => fetch('https://kidolls-server.vercel.app/allToys')
 
             },
 
             {
                 path: "/allToyDetails/:id",
                 element: <PrivateRoute><AllToyDetails></AllToyDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/allToys/${params.id}`)
+                loader: ({ params }) => fetch(`https://kidolls-server.vercel.app/allToys/${params.id}`)
             },
 
             {
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             {
                 path: '/myToys',
                 element: <PrivateRoute><MyToys></MyToys></PrivateRoute>,
-                // loader: () => fetch('http://localhost:5000/myToys')
+                // loader: () => fetch('https://kidolls-server.vercel.app/myToys')
             },
             {
                 path: '/blogs',
@@ -62,12 +62,12 @@ const router = createBrowserRouter([
             {
                 path: '/catDetails',
                 element: <PrivateRoute><CatDetails></CatDetails></PrivateRoute>,
-                // loader: ({ params }) => fetch(`http://localhost:5000/allToys/${params.id}`)
+                // loader: ({ params }) => fetch(`https://kidolls-server.vercel.app/allToys/${params.id}`)
             },
             {
                 path: '/updateData/:id',
                 element: <Updatedata></Updatedata>,
-                loader: ({ params }) => fetch(`http://localhost:5000/myToys/${params.id}`)
+                loader: ({ params }) => fetch(`https://kidolls-server.vercel.app/myToys/${params.id}`)
             }
 
 
