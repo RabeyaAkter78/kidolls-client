@@ -26,12 +26,11 @@ const Updatedata = () => {
             .then((response) => response.json())
             .then((json) => console.log(json));
         form.reset();
-        Swal.fire({
-            title: 'Error!',
-            text: 'Do you want to continue',
-            icon: 'error',
-            confirmButtonText: 'Cool'
-        })
+        Swal.fire(
+            'Success!',
+            'Updated Successfully!',
+            'success'
+          )
     }
 
     return (
