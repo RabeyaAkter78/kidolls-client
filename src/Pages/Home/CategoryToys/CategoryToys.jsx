@@ -66,9 +66,9 @@ const CategoryToys = () => {
                                                 <h2>Name: {category.name}</h2>
                                                 <h2>Price:$  {category.price}</h2>
                                                 <h2>Ratings: {category.ratings}   </h2>
-                                                <button className="btn btn-primary mt-2">
-                                                    Buy Now
-                                                </button>
+                                                <Link to={`/allToyDetails/${category._id}`}>
+                                                    <button className="btn btn-primary">View Details</button>
+                                                </Link>
                                             </div>
                                         </div>
 
@@ -90,7 +90,11 @@ const CategoryToys = () => {
                                             <h2>Name: {category.name}</h2>
                                             <h2>Price:$  {category.price}</h2>
                                             <h2>Ratings: {category.ratings}   </h2>
-                                            <button className="btn btn-primary mt-2">Buy Now</button>
+
+                                            <Link to={`/allToyDetails/${category._id}`}>
+                                                <button className="btn btn-primary">View Details</button>
+                                            </Link>
+
                                         </div>
                                     </div>
                                 )
@@ -109,7 +113,9 @@ const CategoryToys = () => {
                                             <h2>Name: {category.name}</h2>
                                             <h2>Price:$  {category.price}</h2>
                                             <h2>Ratings: {category.ratings}   </h2>
-                                            <button className="btn btn-primary mt-2">Buy Now</button>
+                                            <Link to={`/allToyDetails/${category._id}`}>
+                                                <button className="btn btn-primary">View Details</button>
+                                            </Link>
                                         </div>
                                     </div>
                                 )
