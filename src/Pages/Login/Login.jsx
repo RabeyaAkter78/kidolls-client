@@ -8,9 +8,17 @@ import app from '../../firebase/Firebase.config';
 const Auth = getAuth(app)
 const Login = () => {
     useTitle('Login');
-    const [ setUser] = useState(null);
+    const [setUser] = useState(null);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+
+
+    const { signInUser } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    // console.log('login page location', location);
+    const from = location.state?.from?.pathname || '/';
+    console.log(from);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(Auth, loggedInUser => {
@@ -24,11 +32,6 @@ const Login = () => {
     }, [])
 
 
-    const { signInUser } = useContext(AuthContext);
-    const navigate = useNavigate();
-    const location = useLocation();
-    // console.log('login page location', location);
-    const from = location.state?.from.pathname || '/';
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -38,14 +41,8 @@ const Login = () => {
         console.log(email, password);
 
         signInUser(email, password)
-            .then(result => {
-                const loggedUser = result.user;
-                // console.log(loggedUser)
+            .then(() => {
                 navigate(from, { replace: true });
-                setError('');
-                form.reset();
-                setSuccess('Successfully Login !');
-                setUser(loggedUser)
             })
             .catch(error => {
                 setError(error.message)
@@ -64,18 +61,14 @@ const Login = () => {
     const handleLogInWithGoogle = () => {
 
         signInWithPopup(Auth, provider)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
-                setUser(loggedUser);
+            .then(() => {
+               
                 navigate(from, { replace: true });
 
             })
             .catch(error => {
                 console.log(error.message);
             })
-
-
     }
 
     return (
