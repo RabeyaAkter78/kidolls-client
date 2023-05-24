@@ -54,7 +54,7 @@ const CategoryToys = () => {
 
 
                     <TabPanel>
-                        <div className=' grid grid-cols-3'>
+                        <div className=' grid md:grid-cols-3'>
                             {
                                 categories?.map(category =>
                                     <div
@@ -67,7 +67,7 @@ const CategoryToys = () => {
                                                 <h2>Price:$  {category.price}</h2>
                                                 <h2>Ratings: {category.ratings}   </h2>
                                                 <button className="btn btn-primary mt-2">
-                                                    <Link to="catDetails" >View Details</Link>
+                                                    Buy Now
                                                 </button>
                                             </div>
                                         </div>
@@ -79,7 +79,7 @@ const CategoryToys = () => {
                     </TabPanel>
 
                     <TabPanel>
-                        <div className='grid grid-cols-3'>
+                        <div className='grid md:grid-cols-3'>
                             {
                                 categories?.map(category =>
                                     <div
@@ -98,7 +98,7 @@ const CategoryToys = () => {
                         </div>
                     </TabPanel>
                     <TabPanel>
-                        <div className='grid grid-cols-3'>
+                        <div className='grid md:grid-cols-3'>
                             {
                                 categories?.map(category =>
                                     <div
