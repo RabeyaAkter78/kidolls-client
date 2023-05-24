@@ -1,5 +1,5 @@
 import useTitle from "../../Routes/useTitle";
-import { Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa'
 import { useEffect, useState } from "react";
 
@@ -7,7 +7,7 @@ const AllToys = () => {
     const [search, setSearch] = useState("");
     const [allToys, setAllToys] = useState([]);
     useTitle('All-Toys');
-
+// for all toy page:
     useEffect(() => {
         fetch(`http://localhost:5000/allToys`)
             .then(res => res.json())
@@ -16,6 +16,9 @@ const AllToys = () => {
             })
     }, [])
 
+
+
+// for all toy btn:
     const handleSeeAll = () => {
         fetch(`http://localhost:5000/allToys`)
             .then(res => res.json())
@@ -23,7 +26,7 @@ const AllToys = () => {
                 setAllToys(data)
             })
     }
-
+// for search toy btn:
     const handleSearch = () => {
         fetch(`http://localhost:5000/searchToys/${search}`)
             .then(res => res.json())
@@ -31,6 +34,17 @@ const AllToys = () => {
                 setAllToys(data);
             });
     }
+
+    // const handleViewDetails = (id) => {
+    //     console.log(id)
+    //     fetch(`http://localhost:5000/allToys/${id}`)
+    //         .then(res => res.json())
+    //         .then(result => {
+    //             console.log(result)
+    //         })
+
+    // }
+
 
     return (
         <div>
@@ -79,7 +93,11 @@ const AllToys = () => {
                                     <td className="font-bold">$: {toy.price}</td>
                                     <td className="font-bold">{toy.category}</td>
                                     <td className="font-bold">{toy.quantity}</td>
-                                    <td><button className="btn btn-primary"><Link to="/singleToyDetails">Details</Link></button></td>
+                                    <td>
+                                       <Link to={`allToyDetails/${toy._id}`}>
+                                       <button className="btn btn-primary">View Details</button>
+                                       </Link>
+                                    </td>
                                 </tr>
                             )
                         }

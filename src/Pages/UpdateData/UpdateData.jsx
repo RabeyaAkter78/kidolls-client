@@ -1,4 +1,6 @@
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 const Updatedata = () => {
     const data = useLoaderData()
     console.log(data)
@@ -9,6 +11,7 @@ const Updatedata = () => {
         const quantity = form.quantity.value;
         const description = form.description.value;
         const updatedForm = { price, quantity, description }
+        console.log(updatedForm)
 
 
         fetch(`http://localhost:5000/updateData/${data._id}`, {
@@ -22,6 +25,13 @@ const Updatedata = () => {
         })
             .then((response) => response.json())
             .then((json) => console.log(json));
+        form.reset();
+        Swal.fire({
+            title: 'Error!',
+            text: 'Do you want to continue',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+        })
     }
 
     return (
@@ -32,12 +42,18 @@ const Updatedata = () => {
                 <figure className="px-10 pt-10">
                     <img src={data.photo} alt="Shoes" className="rounded-xl" />
                 </figure>
-                <div className="card-body items-center text-center">
-                    <form onSubmit={handleUpdate}>
-                        <input type="text" name='price' placeholder='price' />
-                        <input type="text" name='quantity' placeholder='quantity' />
-                        <input type="text" name='description' placeholder='description' />
-                        <input className='bg-red-600' type="submit" value="Submit" />
+                <div className="card-body  text-center ">
+                    <form className='flex flex-col justify-center items-center' onSubmit={handleUpdate}>
+                        <div>
+                            <input className='border border-solid border-black p-1 rounded mb-2' type="text" name='price' placeholder='price' />
+                            <input className='border border-solid border-black p-1 rounded mb-2' type="text" name='quantity' placeholder='quantity' />
+                            <input className='border border-solid border-black p-1 rounded mb-2' type="text" name='description' placeholder='description' />
+                        </div>
+                        <div className="card-actions">
+                            <input className='bg-teal-950 text-white m-8 p-2 rounded' type="submit" value="Submit" />
+                        </div>
+
+
                     </form>
                 </div>
             </div>

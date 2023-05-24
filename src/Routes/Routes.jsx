@@ -10,8 +10,8 @@ import AddAToy from '../Pages/AddAToy/AddAToy';
 import MyToys from '../Pages/MyToys/MyToys';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import Updatedata from '../Pages/UpdateData/updatedata';
-import SingleToyDetails from '../Pages/SingleToyDetails/SingleToyDetails';
 import CatDetails from '../Pages/CatDetails/CatDetails';
+import AllToyDetails from '../Pages/allToyDetails/allToyDetails';
 
 
 const router = createBrowserRouter([
@@ -37,6 +37,13 @@ const router = createBrowserRouter([
                 // loader: () => fetch('http://localhost:5000/allToys')
 
             },
+
+            {
+                path: "/allToyDetails/:id",
+                element: <PrivateRoute><AllToyDetails></AllToyDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/allToys/${params.id}`)
+            },
+
             {
                 path: '/addAToy',
                 element: <PrivateRoute> <AddAToy></AddAToy></PrivateRoute>,
@@ -51,11 +58,7 @@ const router = createBrowserRouter([
                 path: '/blogs',
                 element: <Blogs></Blogs>
             },
-            // {
-            //     path: '/singleToyDetails/:id',
-            //     element: <PrivateRoute><SingleToyDetails></SingleToyDetails></PrivateRoute>,
-            //     loader: ({ params }) => fetch(`http://localhost:5000/allToys/${params.id}`)
-            // },
+
             {
                 path: '/catDetails',
                 element: <PrivateRoute><CatDetails></CatDetails></PrivateRoute>,

@@ -1,9 +1,7 @@
-import { useLoaderData } from 'react-router-dom';
-import Toys from '../Toys/Toys';
 import useTitle from '../../Routes/useTitle';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const MyToys = () => {
     useTitle('My-Toys');
@@ -23,10 +21,9 @@ const MyToys = () => {
     console.log(myData);
 
     const handleDelete = (id) => {
-        // console.log(id)
+        console.log(id)
         fetch(`http://localhost:5000/myToys/${id}`, {
             method: "DELETE",
-
         })
             .then(res => res.json())
             .then(result => {
@@ -37,9 +34,7 @@ const MyToys = () => {
                 }
                 console.log(result)
             })
-
     }
-
 
     return (
         <div>
@@ -72,8 +67,8 @@ const MyToys = () => {
                                     <td>{toy.quantity}</td>
                                     <td><button className='btn btn-primary'>
                                         <Link to={`/updateData/${toy._id}`}>UPDATE</Link>
-                                        </button></td>
-                                    <td><button onClick={() => handleDelete(toy._id)} className='btn btn-primary'>DELETE</button></td>
+                                    </button></td>
+                                    <td><button onClick={() => handleDelete(toy._id)} className='btn btn-danger'>DELETE</button></td>
                                 </tr>
 
 
